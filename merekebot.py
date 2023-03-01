@@ -1,4 +1,5 @@
 from twitchio.ext import commands
+import pygame
 
 
 class Bot(commands.Bot):
@@ -8,6 +9,8 @@ class Bot(commands.Bot):
         # prefix can be a callable, which returns a list of strings or a string...
         # initial_channels can also be a callable which returns a list of strings...
         super().__init__(token='oauth:zue8g1595crq3i9uoty8bce9xb3jxy', prefix='!', initial_channels=['merekebot'])
+
+        pygame.mixer.init()
 
     async def event_ready(self):
         # Notify us when everything is ready!
@@ -24,6 +27,9 @@ class Bot(commands.Bot):
         # Print the contents of our message to console...
         print(message.content)
 
+        pygame.mixer.music.load('money.mp3')
+        pygame.mixer.music.play()
+
         # Since we have commands and are overriding the default `event_message`
         # We must let the bot know we want to handle and invoke our commands...
         await self.handle_commands(message)
@@ -38,6 +44,8 @@ class Bot(commands.Bot):
         # Sending a reply back to the channel is easy... Below is an example.
         await ctx.send(f'Hello {ctx.author.name}!')
 
+    
+    
 
 bot = Bot()
 bot.run()
