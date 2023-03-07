@@ -27,25 +27,40 @@ class Bot(commands.Bot):
         # Print the contents of our message to console...
         print(message.content)
 
-        pygame.mixer.music.load('money.mp3')
-        pygame.mixer.music.play()
+        
 
         # Since we have commands and are overriding the default `event_message`
         # We must let the bot know we want to handle and invoke our commands...
         await self.handle_commands(message)
 
     @commands.command()
-    async def hello(self, ctx: commands.Context):
+    async def hi(self, ctx: commands.Context):
         # Here we have a command hello, we can invoke our command with our prefix and command name
         # e.g ?hello
         # We can also give our commands aliases (different names) to invoke with.
 
         # Send a hello back!
         # Sending a reply back to the channel is easy... Below is an example.
-        await ctx.send(f'Hello {ctx.author.name}!')
+        await ctx.send(f'¡BUENAS  {ctx.author.name}!')
+        pygame.mixer.music.load('heyhey.mp3')
+        pygame.mixer.music.play()  
 
-    
-    
+    @commands.command()
+    async def money(self, ctx: commands.Context):
+        pygame.mixer.music.load('money.mp3')
+        pygame.mixer.music.play()  
+    @commands.command()
+    async def gotcha(self, ctx: commands.Context):
+        pygame.mixer.music.load('gotcha.mp3')
+        pygame.mixer.music.play() 
+    @commands.command()
+    async def atomic(self, ctx: commands.Context):
+        pygame.mixer.music.load('atomic.mp3')
+        pygame.mixer.music.play() 
+    @commands.command()
+    async def kaguya(self, ctx: commands.Context):
+        pygame.mixer.music.load('haaa.mp3')
+        pygame.mixer.music.play()
 
 bot = Bot()
 bot.run()
