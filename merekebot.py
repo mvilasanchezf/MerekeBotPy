@@ -49,6 +49,10 @@ class Bot(commands.Bot):
         pygame.mixer.music.play()  
 
     @commands.command()
+    async def lobo(self, ctx: commands.Context):
+        pygame.mixer.music.load('lobo.mp3')
+        pygame.mixer.music.play() 
+    @commands.command()
     async def money(self, ctx: commands.Context):
         pygame.mixer.music.load('money.mp3')
         pygame.mixer.music.play()  
